@@ -1,3 +1,3 @@
 /*
-All the competetive forum problems.
+HackerRank problems
 */
