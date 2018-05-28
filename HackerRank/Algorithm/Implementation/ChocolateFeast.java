@@ -20,7 +20,7 @@ public class Solution {
         do{
             no_OF_CHOCOLATE_WITH_wrapper=(int)((no_OF_CHOCOLATE_WITH_wrapper+remainder)/m);
             totl_choco+=no_OF_CHOCOLATE_WITH_wrapper;
-            remainder = 0;
+            remainder = no_OF_CHOCOLATE_WITH_wrapper%m;
         }while((no_OF_CHOCOLATE_WITH_wrapper)>=m);
         return totl_choco;
     }
