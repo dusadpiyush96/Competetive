@@ -8,30 +8,28 @@ import java.util.regex.*;
 
 public class Solution {
 
-    // Complete the anagram function below.
     static int anagram(String s) {
         char[] c = s.toCharArray();
-        ArrayList<Character> hs = new ArrayList<Character>();
+        List<Character> hs = new ArrayList<Character>();
         if(c.length%2==1) return -1;
         for(int i=0;i<c.length/2;i++){
             hs.add(c[i]);
             System.out.println(c[i]);
         }
-        int count = hs.size();
-        for(int i=0;i<count;i++){
-            System.out.println(c[c.length-1-i]);
-            System.out.println(hs.contains(c[c.length-1-i]));
-            hs.remove(c[c.length-1-i]);
-            try{
-                if(hs.size()!=0 && hs.contains(c[c.length-1-i]) ) hs.remove(c[c.length-1-i]);
-            }
-            catch(Exception e){ 
-                continue;
-                              
+        ListIterator<Character> it = hs.listIterator();
+        int count = 0;
+        while(it.hasNext()){
+            char ch = it.next();
+            for(int i=c.length/2;i<c.length;i++){
+                if(ch==c[i]){
+                    c[i]='5';
+                    count++;
+                    break;
+                }
             }
         }
-        if(hs.size()==0) return -1;
-        else return hs.size();
+        if(count==hs.size()) return 0;
+        else return hs.size()-count;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
