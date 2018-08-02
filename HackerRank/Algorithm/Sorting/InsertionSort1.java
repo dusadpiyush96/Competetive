@@ -18,29 +18,23 @@ public class Solution {
     }
     
     static void insertionSort1(int n, int[] arr) {
-        int k=0;
-        int a=0;
-        for(int i=n-2;i>=0;i--){
-            a = arr[i];
-            for(int j=i-1;j>=0;j--){
-                if(arr[j]<a){
-                    k = j;
-                    //break;
-                    for(int b=i-1; b>k;b--){
-                        //int t=arr[b+1];
-                        arr[b+1]=arr[b];
-                        //arr[b+2]=t;
-                    }
-                    print(arr);
-                    break;
-                }
+        int key= arr[n-1];
+        for(int i=n-2;i>=-1;i--){
+            if(i==-1){
+                arr[0]=key;
+                print(arr);
+                break;
             }
-            //arr[k]=arr[i];
-            
-            arr[k]=a;
+            if(arr[i]>key){
+                arr[i+1]=arr[i];
+                print(arr);
+            }
+            else{
+                arr[i+1]=key;
+                print(arr);
+                break;
+            }
         }
-        
-        print(arr);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
